@@ -62,6 +62,8 @@ $pos    Create a position.
 $line   Create a line.
 $circle Create a circle.
 $arc    Create an arc.
+$move   Create a transform:move
+$rotate Create a transform:rotate
 $x      Return the x coordinate.
 $y      Return the y coordinate.
 $xy     Returns an x-y coordinate pair.

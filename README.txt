@@ -57,6 +57,18 @@ To save an image in memory, open an image file with Ronin, or drag an image file
 
 (export)
 
+$rect   Create a rectangle object.
+$pos    Create a position.
+$line   Create a line.
+$circle Create a circle.
+$arc    Create an arc.
+$x      Return the x coordinate.
+$y      Return the y coordinate.
+$xy     Returns an x-y coordinate pair.
+$wh     Returns a pair of numbers representing the width and height.
+$a      Returns the angle in radians.
+$r      Returns the length of the radius.
+
 Library
 
 Importing and Exporting:

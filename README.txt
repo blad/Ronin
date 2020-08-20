@@ -122,7 +122,7 @@ Color:
 - (gradient line ~colors 'black']) Defines a gradient color.
 
 Pixels:
-- (pixels fn ~q ~rect) 
+- (pixels fn ~q ~rect) Change the pixels using fn.
 - (saturation pixel q) Change the saturation of pixels.
 - (contrast pixel q) Change the contrast of pixels.
 - (brightness pixel q) Change the brightness of pixels.
@@ -132,7 +132,7 @@ Pixels:
 - (lum color) Return the luminance of a color.
 
 Image Processing:
-- (convolve kernel ~rect) 
+- (convolve kernel ~rect) Apply the kernel to the rectangle.
 - (blur) Returns the blur kernel.
 - (sharpen) Returns the sharpen kernel.
 - (edge) Returns the edge kernel.
@@ -151,21 +151,21 @@ Math:
 - (rad degrees) Convert radians to degrees.
 - (deg radians) Convert degrees to radians.
 - (clamp val min max) Clamps a value between min and max.
-- (step val step) 
-- (min) Returns lowest value.
-- (max) Returns highest value.
-- (ceil) Rounds up to the nearest integer.
-- (floor) Rounds down to the nearest integer.
-- (round) Rounds to the nearest integer
-- (sin) 
-- (cos) 
-- (log) 
-- (pow) 
-- (sqrt) Calculate the square root.
+- (step val step) Round val to nearest value that's a multiple of step.
+- (min ...args) Returns lowest value.
+- (max ...args) Returns highest value.
+- (ceil a) Rounds up to the nearest integer.
+- (floor a) Rounds down to the nearest integer.
+- (round a) Rounds to the nearest integer
+- (sin a) Returns the sine at the given angle. 
+- (cos a) Returns the cosine at the given angle.
+- (log n) Returns the log (base 10) at the given value)
+- (pow a b) Returns the power of base a to power b.
+- (sqrt a) Calculate the square root.
 - (sq a) Calculate the square.
-- (PI) 
-- (TWO_PI) 
-- (random ...args) 
+- (PI) Returns the decimal value of Pi.
+- (TWO_PI) Returns 2 time the value of Pi.
+- (random ...args) Returns random number in a range.
 - (gt a b) Returns true if a is greater than b, else false.
 - (lt a b) Returns true if a is less than b, else false.
 - (eq a b) Returns true if a is equal to b, else false.

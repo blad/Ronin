@@ -59,23 +59,30 @@ To save an image in memory, open an image file with Ronin, or drag an image file
 
 Library
 
+Importing and Exporting:
 - (open name ~scale) Imports a graphic file with format.
 - (import name ~shape) Imports a graphic file with format.
 - (export ~format ~quality) Exports a graphic file with format.
 - (files) Returns the list of loaded files.
 - (print string) Exports string to file.
+
+Shapes, Sizes, and Positioning:
 - (pos ~x ~y) Returns a position shape.
-- (line ax ay bx by) Returns a line shape.
 - (size w h) Returns a size shape.
+- (line ax ay bx by) Returns a line shape.
 - (rect x y w h) Returns a rect shape.
 - (circle cx cy r) Returns a circle shape.
 - (ellipse cx cy rx ry) Returns a ellipse shape.
 - (arc cx cy r sa ea) Returns an arc shape.
 - (poly ...pos) Returns a poly shape.
-- (text x y p t ~a ~f) Returns a text shape.
-- (svg x y d) Returns a svg shape.
-- (color r g b ~a) Returns a color object.
-- (hsl h s l ~a) returns a HSL color object
+- (guide shape color) Draws a shape on the guide layer.
+- (distance a b) Get distance between positions.
+
+Canvas
+- (get-frame) Returns the frame's properties
+- (orient ~deg) Orient canvas with angle in degrees.
+- (mirror:x) Mirror canvas horizontally.
+- (mirror:y) Mirror canvas vertically.
 - (resize ~w) Resizes the canvas to target w and h, returns the rect.
 - (rescale ~w ~h) Rescales the canvas to target ratio of w and h, returns the rect.
 - (crop ~rect) Crop canvas to rect.
@@ -83,25 +90,47 @@ Library
 - (paste copy ~rect) Paste a section of the canvas.
 - (drag ~rect) Drag a part of the canvas.
 - (view a b) View a part of the canvas.
+- (offset a b) Offsets pos a with pos b, returns a.
+
+The transform toolkit:
+- (transform:push) 
+- (transform:pop)
+- (transform:reset)
+- (transform:move x y)
+- (transform:scale w h)
+- (transform:rotate a)
+
+Color:
+- (color r g b ~a) Returns a color object.
 - (pick ~shape) Returns the color of a pixel at pos, or of the average of the pixels in rect.
-- (orient ~deg) Orient canvas with angle in degrees.
-- (mirror) Mirror canvas, methods: x, y.
-- (transform) The transform toolkit, methods push, pop, reset, move, scale, rotate.
+- (hsl h s l ~a) returns a HSL color object
 - (stroke shape color ~thickness) Strokes a shape.
 - (fill ~rect) Fills a shape.
 - (clear ~rect) Clears a rect.
 - (gradient line ~colors 'black']) Defines a gradient color.
-- (guide shape color) Draws a shape on the guide layer.
+
+Pixels:
 - (pixels fn ~q ~rect) 
 - (saturation pixel q) Change the saturation of pixels.
 - (contrast pixel q) Change the contrast of pixels.
 - (brightness pixel q) Change the brightness of pixels.
 - (additive pixel q) Condense the data of pixels.
 - (multiply pixel q) Change the color balance of pixels.
-- (normalize pixel q) Normalize the color of pixels with another color.
+- (normalize pixel color) Normalize the color of pixels with another color.
 - (lum color) Return the luminance of a color.
+
+Image Processing:
+- (convolve kernel ~rect) 
+- (blur) Returns the blur kernel.
+- (sharpen) Returns the sharpen kernel.
+- (edge) Returns the edge kernel.
+
+Strings and Text:
 - (concat ...items) Concat multiple strings.
 - (split string char) Split string at character.
+- (text x y p t ~align ~font) Returns a text shape.
+
+Math:
 - (add ...args) Adds values.
 - (sub ...args) Subtracts values.
 - (mul ...args) Multiplies values.
@@ -130,6 +159,8 @@ Library
 - (eq a b) Returns true if a is equal to b, else false.
 - (and ...args) Returns true if all conditions are true.
 - (or a b ...rest) Returns true if at least one condition is true.
+
+Collections:
 - (each arr fn) Run a function for each element in a list.
 - (map arr fn) Run a function on each element in a list.
 - (filter arr fn) Remove from list, when function returns false.
@@ -144,19 +175,18 @@ Library
 - (of h ...keys) Gets object parameters with names.
 - (keys item) Returns a list of the object's keys
 - (values item) Returns a list of the object's values
-- (convolve kernel ~rect) 
-- (blur) Returns the blur kernel.
-- (sharpen) Returns the sharpen kernel.
-- (edge) Returns the edge kernel.
-- (offset a b) Offsets pos a with pos b, returns a.
-- (distance a b) Get distance between positions.
-- (echo ...args) Print arguments to interface.
-- (debug arg) Print arguments to console.
+
+Misc:
+- (svg x y d) Returns a svg shape.
 - (time ~rate) Returns timestamp in milliseconds.
-- (js) Javascript interop.
-- (on event f) Triggers on event.
-- (test name a b) 
+- (on event f) Triggers f on event.
+- (js) Javascript interop. Returns reference to window.
+
+Debugging and Testing:
 - (benchmark fn) Logs time taken to execute a function.
+- (debug arg) Print arguments to console.
+- (echo ...args) Print arguments to interface.
+- (test name a b) test assertion that logs result to console.
 
 Extras
 
